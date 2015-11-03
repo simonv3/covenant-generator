@@ -1,0 +1,29 @@
+{
+  "author": "Simon Vansintjan",
+  "name": "covenant-generator",
+  "description": "Pulls down the Contributors Covenant into your project.",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/simonv3/covenant-generator.git"
+  },
+  "main": "covenant.js",
+  "bin": "covenant.js",
+  "engines": {
+    "node": ">=0.4"
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+
+  },
+  "license": "MIT",
+  "keywords": [
+    "github",
+    "markdown",
+    "documentation",
+    "code-of-conduct",
+    "contributors-covenant"
+  ]
+}
