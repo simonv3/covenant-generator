@@ -1,10 +1,14 @@
 # Covenant Generator
 
-```npm install -g covgen```
+```
+npm install -g covgen
+```
 
-And then in your project
+And then in your project:
 
-```covgen```
+```
+covgen
+```
 
 Generates the [Contributor Covenant](http://contributor-covenant.org/) inside the current directory.
 
