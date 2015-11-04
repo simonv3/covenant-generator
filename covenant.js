@@ -3,10 +3,11 @@
 'use strict';
 
 var http = require('http'),
+    request = require('request'),
     fs = require('fs');
 
-var url = "http://contributor-covenant.org/version/1/3/0/code_of_conduct.md";
-var dest = "CODE_OF_CONDUCT.md";
+var url = 'http://contributor-covenant.org/version/1/3/0/code_of_conduct.md';
+var dest = 'CODE_OF_CONDUCT.md';
 
 if (process.argv.length < 3) {
   console.log('Usage: node ' + process.argv[1] + ' <email@address.domain>');
@@ -14,28 +15,26 @@ if (process.argv.length < 3) {
   process.exit(1);
 }
 
-var download = function(url, dest, cb) {
-  var file = fs.createWriteStream(dest);
-  var request = http.get(url, function(response) {
-    response.pipe(file);
-    file.on('finish', function() {
-      file.close(cb);
-    });
-  }).on('error', function(err) {
-    fs.unlink(dest);
-    if (cb) cb(err.message);
+var download = function(url, dest) {
+  console.log('Downloading Contributors Covenant...');
+
+  request(url, function(error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log('Replacing e-mail address...');
+
+      var newContent = body.replace('[INSERT EMAIL ADDRESS]', process.argv[2]);
+      fs.writeFile(dest, newContent, 'utf8', function(err) {
+        if (err) {
+          console.log('Error writing file:', err);
+        }
+        else {
+          console.log('Done!');
+        }
+      });
+    } else {
+      console.log('Error fetching file:', error);
+    }
   });
 };
 
-var replaceEmail = function() {
-  fs.readFile(dest, 'utf8', function(err, data) {
-    if (err) console.log(err);
-
-    var newContent = data.replace('[INSERT EMAIL ADDRESS]', process.argv[2]);
-    fs.writeFile(dest, newContent, 'utf8', function(err, data) {
-      if (err) console.log(err);
-    });
-  });
-};
-
-download(url, dest, replaceEmail);
+download(url, dest);

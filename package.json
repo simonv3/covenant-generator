@@ -20,5 +20,8 @@
     "documentation",
     "code-of-conduct",
     "contributors-covenant"
-  ]
+  ],
+  "dependencies": {
+    "request": "^2.65.0"
+  }
 }
