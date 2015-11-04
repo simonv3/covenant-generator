@@ -3,13 +3,14 @@
 'use strict';
 
 var http = require('http'),
-    fs   = require('fs');
+    fs = require('fs');
 
 var url = "http://contributor-covenant.org/version/1/3/0/code_of_conduct.md";
 var dest = "CODE_OF_CONDUCT.md";
 
 if (process.argv.length < 3) {
   console.log('Usage: node ' + process.argv[1] + ' <email@address.domain>');
+  console.log('Or:    covgen <email@address.domain> (if installed globally)');
   process.exit(1);
 }
 
@@ -18,7 +19,7 @@ var download = function(url, dest, cb) {
   var request = http.get(url, function(response) {
     response.pipe(file);
     file.on('finish', function() {
-      file.close(cb);  // close() is async, call cb after close completes.
+      file.close(cb);
     });
   }).on('error', function(err) {
     fs.unlink(dest);

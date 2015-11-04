@@ -4,7 +4,7 @@
 npm install -g covgen
 ```
 
-And then in your project:
+And then in your new projects:
 
 ```
 covgen <your_email_address>
