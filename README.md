@@ -7,7 +7,7 @@ npm install -g covgen
 And then in your project:
 
 ```
-covgen
+covgen <your_email_address>
 ```
 
 Generates the [Contributor Covenant](http://contributor-covenant.org/) inside the current directory.
