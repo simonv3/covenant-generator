@@ -6,7 +6,7 @@ var http = require('http'),
     request = require('request'),
     fs = require('fs');
 
-var url = 'http://contributor-covenant.org/version/1/4/code_of_conduct.md';
+var url = 'https://www.contributor-covenant.org/version/1/4/code-of-conduct.md';
 var dest = 'CODE_OF_CONDUCT.md';
 
 if (process.argv.length < 3 || !process.argv.every(val => val.match(/(--help|-h)/) === null)) {
