@@ -2,6 +2,7 @@
   "author": "Simon Vansintjan",
   "name": "covgen",
   "description": "Pulls down the Contributors Covenant into your project.",
+  "homepage": "https://github.com/simonv3/covenant-generator",
   "version": "2.1.1",
   "repository": {
     "type": "git",
