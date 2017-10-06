@@ -23,5 +23,10 @@
   ],
   "dependencies": {
     "request": "^2.65.0"
-  }
+  },
+  "homepage": "https://github.com/simonv3/covenant-generator",
+  "bugs": "https://github.com/simonv3/covenant-generator/issues",
+  "contributors": [
+    "Simon Vansintjan"
+  ]
 }
