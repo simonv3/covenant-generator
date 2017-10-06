@@ -1,40 +1,27 @@
 #!/usr/bin/env node
+const request = require('request-promise')
+const fs = require('mz/fs')
 
-'use strict';
+module.exports = async function download (email, dest) {
+  if (!email) {
+    throw new Error('An email address must be provided!')
+  }
 
-var http = require('http'),
-    request = require('request'),
-    fs = require('fs');
+  var url = 'https://www.contributor-covenant.org/version/1/4/code-of-conduct.md'
+  dest = dest || 'CODE_OF_CONDUCT.md'
 
-var url = 'https://www.contributor-covenant.org/version/1/4/code-of-conduct.md';
-var dest = 'CODE_OF_CONDUCT.md';
+  console.log('Downloading Contributors Covenant...')
 
-if (process.argv.length < 3 || !process.argv.every(val => val.match(/(--help|-h)/) === null)) {
-  console.log('Usage: node ' + process.argv[1] + ' <email@address.domain>');
-  console.log('Or:    covgen <email@address.domain> (if installed globally)');
-  process.exit(1);
+  await request(url)
+    .then(async res => {
+      console.log('Replacing e-mail address...')
+      var newContent = res.replace('[INSERT EMAIL ADDRESS]', email)
+
+      await fs.writeFile(dest, newContent, 'utf8')
+        .catch((err) => console.log('Error writing file:', err))
+        .then(() => console.log('Done!'))
+    })
+    .catch(error => {
+      console.log('Error fetching file:', error)
+    })
 }
-
-var download = function(url, dest) {
-  console.log('Downloading Contributors Covenant...');
-
-  request(url, function(error, response, body) {
-    if (!error && response.statusCode == 200) {
-      console.log('Replacing e-mail address...');
-
-      var newContent = body.replace('[INSERT EMAIL ADDRESS]', process.argv[2]);
-      fs.writeFile(dest, newContent, 'utf8', function(err) {
-        if (err) {
-          console.log('Error writing file:', err);
-        }
-        else {
-          console.log('Done!');
-        }
-      });
-    } else {
-      console.log('Error fetching file:', error);
-    }
-  });
-};
-
-download(url, dest);
