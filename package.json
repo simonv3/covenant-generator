@@ -8,12 +8,18 @@
     "type": "git",
     "url": "git://github.com/simonv3/covenant-generator.git"
   },
+  "scripts": {
+    "lint": "standard",
+    "test": "ava test/test.js"
+  },
   "main": "covenant.js",
   "bin": "covenant.js",
   "engines": {
     "node": ">=0.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "ava": "^0.22.0"
+  },
   "license": "MIT",
   "keywords": [
     "github",
@@ -23,9 +29,9 @@
     "contributors-covenant"
   ],
   "dependencies": {
-    "request": "^2.65.0"
+    "mz": "^2.7.0",
+    "request-promise": "^4.2.2"
   },
-  "homepage": "https://github.com/simonv3/covenant-generator",
   "bugs": "https://github.com/simonv3/covenant-generator/issues",
   "contributors": [
     "Simon <contact@vansintjan.net>",
