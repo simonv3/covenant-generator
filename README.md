@@ -1,5 +1,7 @@
 # Covenant Generator
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/simonv3/covenant-generator.svg)](https://greenkeeper.io/)
+
 ```
 npm install -g covgen
 ```
