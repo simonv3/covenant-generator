@@ -13,7 +13,7 @@
     "test": "ava test/test.js"
   },
   "main": "covenant.js",
-  "bin": "covenant.js",
+  "bin": "cli.js",
   "engines": {
     "node": ">=0.4"
   },
@@ -30,6 +30,7 @@
   ],
   "dependencies": {
     "mz": "^2.7.0",
+    "request": "^2.83.0",
     "request-promise": "^4.2.2"
   },
   "bugs": "https://github.com/simonv3/covenant-generator/issues",
