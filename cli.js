@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fn = require('./')
 
 if (process.argv.length < 3 || !process.argv.every(val => val.match(/(--help|-h)/) === null)) {

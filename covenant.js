@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 const request = require('request-promise')
 const fs = require('mz/fs')
 
