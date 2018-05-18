@@ -1,6 +1,7 @@
 # Covenant Generator
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/simonv3/covenant-generator.svg)](https://greenkeeper.io/)
+[![Build Status](https://api.travis-ci.org/simonv3/covenant-generator.svg?branch=master)](https://travis-ci.org/simonv3/covenant-generator)
 
 ## Install
 
