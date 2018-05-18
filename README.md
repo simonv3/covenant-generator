@@ -19,6 +19,18 @@ covgen <your_email_address>
 
 Generates the [Contributor Covenant](http://contributor-covenant.org/) inside the current directory.
 
+You can also specify where the file goes:
+
+```
+covgen <your_email_address> destination.md
+```
+
+Or, for multiple locations, use commas to delimit locations
+
+```
+covgen <your_email_address> destination.md,newDirectory/second_destination.md
+```
+
 Warning! Just copy and pasting a code of conduct isn't a fix. You have to live by it.
 
 I've made this project because the Contributor Covenant is a really good Code of Conduct to use as a standard and if you've read and will abide by it, it's a good default to include in your project.
