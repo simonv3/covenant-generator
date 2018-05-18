@@ -29,6 +29,7 @@
     "contributors-covenant"
   ],
   "dependencies": {
+    "mkdirp-promise": "^5.0.1",
     "mz": "^2.7.0",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
