@@ -5,6 +5,8 @@ const path = require('path')
 
 test.after('cleanup', t => {
   fs.unlink(path.join(__dirname, 'fixtures/RES.md'))
+  fs.unlink(path.join(__dirname, 'fixtures/test/RES.md'))
+  fs.rmdir(path.join(__dirname, 'fixtures/test'))
 })
 
 test('throws if no email provided', async t => {
@@ -18,6 +20,18 @@ test('will create file', async t => {
   await fs.readFile(path.join(__dirname, 'fixtures/CODE_OF_CONDUCT.md'), 'utf8')
     .then(async (fixture) => {
       await fs.readFile(path.join(__dirname, 'fixtures/RES.md'), 'utf8')
+        .then(newfile => {
+          t.is(fixture, newfile)
+        })
+    })
+})
+
+test('will create directories as needed', async t => {
+  const dest = path.join(__dirname, 'fixtures/test/RES.md')
+  await fn('test@example.com', dest)
+  await fs.readFile(path.join(__dirname, 'fixtures/CODE_OF_CONDUCT.md'), 'utf8')
+    .then(async (fixture) => {
+      await fs.readFile(path.join(__dirname, 'fixtures/test/RES.md'), 'utf8')
         .then(newfile => {
           t.is(fixture, newfile)
         })

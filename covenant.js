@@ -1,5 +1,7 @@
 const request = require('request-promise')
 const fs = require('mz/fs')
+const mkdirp = require('mkdirp-promise')
+const getDirName = require('path').dirname
 
 module.exports = async function download (email, dest) {
   if (!email) {
@@ -16,9 +18,13 @@ module.exports = async function download (email, dest) {
       console.log('Replacing e-mail address...')
       var newContent = res.replace('[INSERT EMAIL ADDRESS]', email)
 
-      await fs.writeFile(dest, newContent, 'utf8')
-        .catch((err) => console.log('Error writing file:', err))
-        .then(() => console.log('Done!'))
+      await mkdirp(getDirName(dest)).then(async () => {
+        fs.writeFile(dest, newContent, 'utf8')
+          .catch((err) => console.log('Error writing file:', err))
+          .then(() => console.log(`Done! Created file ${dest}.`))
+      }).catch(err => {
+        console.log('Unable to creat directory for path.', err)
+      })
     })
     .catch(error => {
       console.log('Error fetching file:', error)
