@@ -2,6 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/simonv3/covenant-generator.svg)](https://greenkeeper.io/)
 [![Build Status](https://api.travis-ci.org/simonv3/covenant-generator.svg?branch=master)](https://travis-ci.org/simonv3/covenant-generator)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsimonv3%2Fcovenant-generator.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsimonv3%2Fcovenant-generator?ref=badge_shield)
 
 ## Install
 
@@ -44,3 +45,6 @@ Sure! Take a look at the [Contributing file](CONTRIBUTING.md).
 ## License
 
 [MIT](LICENSE)
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsimonv3%2Fcovenant-generator.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsimonv3%2Fcovenant-generator?ref=badge_large)
