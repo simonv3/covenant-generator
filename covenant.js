@@ -26,7 +26,7 @@ module.exports = async function download (email, dest) {
   await request(url)
     .then(async res => {
       console.log('Replacing e-mail address...')
-      var content = res.replace('[INSERT EMAIL ADDRESS]', email)
+      var content = res.replace('[INSERT CONTACT METHOD]', email)
 
       if (dest.split(',').length > 1) {
         let destinations = dest.split(',')
