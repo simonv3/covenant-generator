@@ -18,7 +18,7 @@ module.exports = async function download (email, dest) {
     throw new Error('An email address must be provided!')
   }
 
-  var url = 'https://www.contributor-covenant.org/version/1/4/code-of-conduct.md'
+  var url = 'https://www.contributor-covenant.org/version/2/0/code_of_conduct/code_of_conduct.md'
   dest = dest || 'CODE_OF_CONDUCT.md'
 
   console.log('Downloading Contributors Covenant...')
