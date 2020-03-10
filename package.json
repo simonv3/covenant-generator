@@ -3,7 +3,7 @@
   "name": "covgen",
   "description": "Pulls down the Contributors Covenant into your project.",
   "homepage": "https://github.com/simonv3/covenant-generator",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "repository": {
     "type": "git",
     "url": "git://github.com/simonv3/covenant-generator.git"
