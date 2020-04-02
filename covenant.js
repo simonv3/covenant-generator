@@ -1,6 +1,6 @@
 const request = require('request-promise')
 const fs = require('mz/fs')
-const mkdirp = require('mkdirp-promise')
+const mkdirp = require('mkdirp')
 const getDirName = require('path').dirname
 
 async function writeFile (dest, content) {
