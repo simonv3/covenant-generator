@@ -15,7 +15,7 @@
   "main": "covenant.js",
   "bin": "cli.js",
   "engines": {
-    "node": ">=0.4"
+    "node": ">=10"
   },
   "devDependencies": {
     "ava": "^0.25.0"
@@ -29,7 +29,7 @@
     "contributors-covenant"
   ],
   "dependencies": {
-    "mkdirp-promise": "^5.0.1",
+    "mkdirp": "^1.0.3",
     "mz": "^2.7.0",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
