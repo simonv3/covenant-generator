@@ -29,10 +29,9 @@
     "contributors-covenant"
   ],
   "dependencies": {
+    "bent": "^7.3.0",
     "mkdirp": "^1.0.3",
-    "mz": "^2.7.0",
-    "request": "^2.83.0",
-    "request-promise": "^4.2.2"
+    "mz": "^2.7.0"
   },
   "bugs": "https://github.com/simonv3/covenant-generator/issues",
   "contributors": [

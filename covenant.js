@@ -1,4 +1,4 @@
-const request = require('request-promise')
+const bent = require('bent')
 const fs = require('mz/fs')
 const mkdirp = require('mkdirp')
 const getDirName = require('path').dirname
@@ -23,21 +23,17 @@ module.exports = async function download (email, dest) {
 
   console.log('Downloading Contributors Covenant...')
 
-  await request(url)
-    .then(async res => {
-      console.log('Replacing e-mail address...')
-      var content = res.replace('[INSERT CONTACT METHOD]', email)
+  const getString = bent('string')
+  const coc = await getString(url)
+  console.log('Replacing e-mail address...')
+  var content = coc.replace('[INSERT CONTACT METHOD]', email)
 
-      if (dest.split(',').length > 1) {
-        let destinations = dest.split(',')
-        for (var i = 0; i < destinations.length; i++) {
-          await writeFile(destinations[i], content)
-        }
-      } else {
-        await writeFile(dest, content)
-      }
-    })
-    .catch(error => {
-      console.log('Error fetching file:', error)
-    })
+  if (dest.split(',').length > 1) {
+    let destinations = dest.split(',')
+    for (var i = 0; i < destinations.length; i++) {
+      await writeFile(destinations[i], content)
+    }
+  } else {
+    await writeFile(dest, content)
+  }
 }
