@@ -29,7 +29,7 @@
     "contributors-covenant"
   ],
   "dependencies": {
-    "bent": "^7.3.0",
+    "bent": "7.3.0",
     "mkdirp": "^1.0.3",
     "mz": "^2.7.0"
   },
