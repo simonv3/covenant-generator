@@ -1,14 +1,32 @@
 #!/usr/bin/env node
 const fn = require('./')
+const { execSync } = require('child_process')
 
-if (process.argv.length < 3 || !process.argv.every(val => val.match(/(--help|-h)/) === null)) {
+function printHelp () {
   console.log('Usage: node ' + process.argv[1] + ' <email@address.domain> [destination]')
   console.log('Or:    covgen <email@address.domain> [destination] (if installed globally)')
-  process.exit(1)
 }
 
-if (process.argv[0] === 'covgen') {
-  fn(process.argv[1], process.argv[2])
-} else {
-  fn(process.argv[2], process.argv[3])
+if (!process.argv.every(val => val.match(/(--help|-h)/) === null)) {
+  printHelp()
+  process.exit(0)
 }
+
+if (process.argv[0] !== 'covgen') {
+  process.argv.shift()
+}
+
+let email = process.argv[1]
+const dest = process.argv[2]
+
+if (email === undefined) {
+  try {
+    email = execSync('git config --get user.email').toString().trim()
+    console.log('No email provided, using the email in your .gitconfig...')
+  } catch {
+    printHelp()
+    process.exit(1)
+  }
+}
+
+fn(email, dest)
