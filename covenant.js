@@ -18,7 +18,7 @@ module.exports = async function download (email, dest) {
     throw new Error('An email address must be provided!')
   }
 
-  var url = 'https://www.contributor-covenant.org/version/2/0/code_of_conduct/code_of_conduct.md'
+  const url = 'https://www.contributor-covenant.org/version/2/0/code_of_conduct/code_of_conduct.md'
   dest = dest || 'CODE_OF_CONDUCT.md'
 
   console.log('Downloading Contributors Covenant...')
@@ -26,11 +26,11 @@ module.exports = async function download (email, dest) {
   const getString = bent('string')
   const coc = await getString(url)
   console.log('Replacing e-mail address...')
-  var content = coc.replace('[INSERT CONTACT METHOD]', email)
+  const content = coc.replace('[INSERT CONTACT METHOD]', email)
 
   if (dest.split(',').length > 1) {
-    let destinations = dest.split(',')
-    for (var i = 0; i < destinations.length; i++) {
+    const destinations = dest.split(',')
+    for (let i = 0; i < destinations.length; i++) {
       await writeFile(destinations[i], content)
     }
   } else {
